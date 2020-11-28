@@ -1,0 +1,64 @@
+# n=1,-1 
+# n=2,-1
+# n=3,2
+# n=4,3
+# n=5,2
+# n=6,4
+#include<vector>
+(721)#include<string>
+#include<iostream>
+(720)#include<stdlib.h>
+#include<algorithm>
+using namespace std;
+
+void Seach_triangle_array(int &row)
+{	
+	// 基于动态规划实现
+
+	int row_num = 2 * row - 1;
+	// row 代表第几行，row_num 为第 row 行的元素数量，
+	// 如果用一个数组来表示杨辉三角，
+	// 那么所有行的长度应该与最后一行的长度一致
+
+	vector<vector<int>> dp(row, vector<int>(row_num, 0));
+	dp[0][row - 1] = 1;
+	// 建立dp 状态矩阵，并初始化第一行元素，
+	// 第一行的元素 1 不在数组最左边，而是第 row个元素，
+	// 因此，第一行值为 1 元素的下标为 row-1.
+	
+	for (int i = 1; i < row; i++)
+	{
+		for (int j = 1; j < row_num-1; j++)
+		{ 
+			// 索引从1开始防止索引越界
+			dp[i][j] = dp[i - 1][j - 1] + dp[i - 1][j] + dp[i - 1][j + 1];
+		}
+	}
+	// 在最后一行的首尾处放置 1 元素
+	dp[row - 1][0] = 1;
+	dp[row - 1][row_num-1] = 1;
+
+	// 寻找杨辉三角矩阵指定行的首次出现的偶数
+	int k;
+	for (k = 0; k < row_num; k++)
+	{
+		if (dp[row - 1][k] % 2 == 0 && dp[row - 1][k] != 0)
+		{
+			cout << k + 1 << endl;
+			break;
+		}
+	}
+	if (k == row_num)
+		cout << -1 << endl;
+}
+
+int main()
+{
+	int num;
+	while (cin >>num)
+	{
+		Seach_triangle_array( num);
+	}
+	system("pause");
+	return 0;
+}
