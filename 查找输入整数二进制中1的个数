@@ -1,8 +1,12 @@
-a=input()
-b=bin(int(a))
-c=str(b)
-k=0
-for d in c:
-    if (d=="1"):
-        k+=1
-print(k)
+while True:
+    try:
+        a=input()
+        b=bin(int(a))
+        c=str(b)
+        k=0
+        for d in c:
+            if (d=="1"):
+                k+=1
+        print(k)
+
+    except:break
