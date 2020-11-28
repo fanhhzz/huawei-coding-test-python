@@ -2,8 +2,8 @@
 # n=2,-1
 # n=3,2
 # n=4,3
-# n=5,2
-# n=6,4
+# n=5,2 (1 e o o e)
+# n=6,4(o o o e)
 #include<vector>
 (721)#include<string>
 #include<iostream>
