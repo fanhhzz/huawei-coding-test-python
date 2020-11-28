@@ -1,0 +1,66 @@
+#n=1,1
+#n=2,3
+#n=3,get 2 fr
+#https://blog.csdn.net/woailuo453786790/article/details/40300843?utm_source=blogxgwz4&utm_medium=distribute.pc_relevant.none-task-blog-baidulandingword-2&spm=1001.2101.3001.4242
+def f(m,n):
+    if m<0 or n<0:
+        return 0
+
+    elif n==1 or m==1:
+        return 1
+    else:
+        return f(m,n-1)+f(m-n,n)
+    
+    
+while True:
+    try:
+        #m=int(input())
+        #n=int(input())
+        #z=f(m,n)
+        #print(z)
+        str=input()
+        str=str.split()
+        m=int(str[0])
+        n=int(str[1])
+        #print(m)
+        #print(n)
+        print(f(m,n))
+    except:break
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+def f(m,n):
+    if m<0 or n<0:
+        return 0
+    elif m==1 or n==1:
+        return 1
+    else:
+        return f(m,n-1)+f(m-n,n)
+while True:
+    try:
+        m,n=map(int,input().split())
+        print(f(m,n))
+    except:
+        break
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+def f(m,n):
+    
+    if n==1 or m==1:
+        return 1
+    elif m>=n:
+        return f(m,n-1)+f(m-n,n)
+    else:
+        return f(m,n-1)
+    
+while True:
+    try:
+        #m=int(input())
+        #n=int(input())
+        #z=f(m,n)
+        #print(z)
+        str=input()
+        str=str.split()
+        m=int(str[0])
+        n=int(str[1])
+        #print(m)
+        #print(n)
+        print(f(m,n))
+    except:break
