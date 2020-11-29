@@ -1,0 +1,15 @@
+#vowels = ['1', '0', 'u', 'o', 'i']
+ 
+# 降序
+#vowels.sort()
+#print(vowels)
+a=input()
+b=[]
+for c in a:
+    b.append(c)
+b.sort()
+
+d=b[0]
+for bb in b:
+    d=d+str(bb)
+print(d[1:])
