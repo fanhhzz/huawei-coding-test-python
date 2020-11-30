@@ -1,0 +1,30 @@
+def prime(n):
+    i=2
+    j=0
+    while i<n:
+        if n%i==0:
+            j=1
+            break
+        else:
+            i=i+1
+    return j
+while True:
+    try:
+        a=int(input())
+        k=3
+        d=a/2
+        b=a/2
+        while k<=(a/2):
+    #w=prime(k)
+    
+            kk=a-k
+            if (prime(k)==0) and (prime(kk)==0):
+                dd=kk-k
+                if dd<d:
+                    d=dd
+                    b=k
+        
+            k=k+1
+        print(b)
+        print(a-b)
+    except:break
