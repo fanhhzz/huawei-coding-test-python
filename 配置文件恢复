@@ -1,0 +1,38 @@
+while True:
+    try:
+        
+        a=input()
+        b=a.split()
+        num=len(b)
+        num1=len(b[0])
+        i=0
+
+        c=['reset','reset board','board add','board delete','reboot backplane','backplane abort']
+        c0=['reset what','board fault','where to add','no board at all','impossible','install first']
+        for d in c:
+            p=c.index(d)
+            d=d.split()
+    
+              
+            if num==len(d):
+                dd=d[0]
+                if b[0]==dd[:num1]:
+                    if num==1:
+                #print(dd)
+                        print(c0[p])
+                        i=1
+                    else:
+                        num2=len(b[1])
+                        dd2=d[1]
+                        if b[1]==dd2[:num2]:
+                            print(c0[p])
+                            i=1
+                
+                    
+        #else:
+            #print('unknown command')
+    #else:
+        #print('unknown command')
+        if i==0:
+            print('unknown command')
+    except:break
