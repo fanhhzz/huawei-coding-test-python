@@ -1,0 +1,18 @@
+#5y+3x+z/3=100
+#y+x+z=100
+#5y+5x+5z=500
+#if isinstance(a,int):
+b=input()
+i=75;
+while i<100:
+    if i%3==0:
+        
+        j=200-7*(i/3)
+        #print(i)
+        z=100-i-j
+        #print(str(j))
+        #if isinstance(z, int):
+        if (z%1==0) and j>=0:
+            print(str(int(z))+' '+str(int(j))+' '+str(int(i))+' ')
+    i=i+1
+    
