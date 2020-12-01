@@ -1,0 +1,33 @@
+while True:
+    try:
+        x=int(input())
+        y=int(input())
+        z=int(input())
+        i=0
+        j=0
+        a=[]
+        b=[]
+        while i<x:
+            t1=list(map(int,input().split()))
+            a.append(t1)
+            i=i+1
+        while j<y:
+            t2=list(map(int,input().split()))
+            b.append(t2)
+            j+=1
+#print(b)
+        for ii in range(x):
+            c=[]
+            xx=a[ii]
+            for jj in range(z):
+        #yy=b[jj]
+                cc=[]
+                for tt in range(y):
+                    yy=b[tt]
+                    cc.append(xx[tt]*yy[jj])
+        #c.append(str(sum(cc))
+                t3=str(sum(cc))
+                c.append(t3)
+    #print(c)
+            print(' '.join(c))
+    except:break
