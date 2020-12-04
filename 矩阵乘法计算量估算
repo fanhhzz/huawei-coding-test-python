@@ -1,0 +1,81 @@
+
+a=int(input())
+b=[]
+c=[]
+for i in range(a):
+    b1,c1=map(int, input().split())
+    b.append(b1)
+    c.append(c1)
+#b1,b2=map(int, input().split())
+s=input()
+s1=[]
+s2=[]
+i=0
+j=0
+for t in s:
+    if (t!='(') and (t!=')'):
+        
+        s1.append(b[i])
+        s2.append(c[i])
+        i=i+1
+    elif t==')':
+        #print(s1)
+        ss1=s1.pop()
+        ss2=s1.pop()
+        ss3=s2.pop()
+        s2.pop()
+        j=j+ss1*ss2*ss3
+        
+        s1.append(ss2)
+        s2.append(ss3)
+print(j)
+%%%%%%%%%%%%%%%%%%%
+while True:
+    try:
+        a=int(input())
+        b=[]
+        c=[]
+        for i in range(a):
+            b1,c1=map(int, input().split())
+            b.append(b1)
+            c.append(c1)
+#b1,b2=map(int, input().split())
+        s=input()
+        s1=[]
+        s2=[]
+        i=0
+        j=0
+        k=0
+        p=0
+        for t in s:
+            if (t!='(') and (t!=')'):
+        
+                s1.append(b[i])
+                s2.append(c[i])
+                i=i+1
+            elif (t=='('):
+                k=k+1
+            elif (t==')') and (p<k):
+                p=p+1
+                ss1=s1.pop()
+                ss2=s1.pop()
+                ss3=s2.pop()
+                s2.pop()
+                j=j+ss1*ss2*ss3
+        
+                s1.append(ss2)
+                s2.append(ss3)
+        print(j)
+    except:break
+%%%%%%%%%%%%%%%
+以 [m,n] 表示m行n列的矩阵，以 [m,n] x [n,p] 为例进行矩阵乘法规则说明。
+
+1、第一个矩阵取一行，第二个矩阵取一列，计算时是对应相乘，有n次乘法。
+2、还是第一个矩阵刚参加运算的那行，第二个矩阵的所有列（共p列），会有n*p次乘法
+3、第一个矩阵的所有行（共m行）参加运算，共会有n*p*m次乘法运算。
+4、得出 [m,n] x [n,p] 共会有n*p*m次乘法运算，运算后的矩阵为 [m,p]
+2.2.2.出栈处理
+1、如果只有一个矩阵，无法进行矩阵乘法，程序结束。
+2、如果有多个矩阵，出栈最后两个。注：先出栈的为第二个矩阵，后出栈的为第一个矩阵
+3、通过 2.2.1 的方法计算单次矩阵乘法运算的乘法次数，得到运算后的新矩阵
+4、将新矩阵入栈，继续参与后面的运算。
