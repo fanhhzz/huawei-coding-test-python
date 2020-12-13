@@ -1,7 +1,34 @@
 #每辆车可进站离开1，可只进0---模拟进站过程
 #出站过程：如果i离开，在它之前的站内车可以跟着出来
 #如果p不为空，将全部车 倒出
-
+while True:
+    try:
+        n = int(input())
+        trains = input().strip().split(' ')
+        res = []
+        out_trains=[]
+#in_trains=[]
+        def re(cur_idx,in_trains,out_trains):
+                if cur_idx==len(trains):
+                    res.append(' '.join(out_trains + in_trains[::-1]))
+                    return
+                else:
+            #not#re(cur_idx+1, in_trains.append(trains[cur_idx]),out_trains)
+            #can not exit iteration 
+                    re(cur_idx + 1, in_trains + [trains[cur_idx]], out_trains)
+            #re(cur_idx+1, in_trains,out_trains+[trains[cur_idx]])
+                    for i in range(len(in_trains)+1):
+            
+                        temp=in_trains[::-1]
+                        innew=temp[i:]
+                        re(cur_idx+1, innew[::-1] ,out_trains+[trains[cur_idx]]+temp[:i])
+                
+            
+        re(0,[],[])
+        res2 = list(set(res))
+        res2.sort()
+        print("\n".join(res2))
+    except:break
 #运行超时，要用迭代
 
 n=int(input())
