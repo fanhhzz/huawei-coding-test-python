@@ -1,0 +1,17 @@
+
+a=input()
+b=input()
+c=0
+for i in range(len(a)):
+    if a[i] in b:
+        j=i
+        temp=a[j]
+        while temp in b:
+            j+=1
+            if j>=len(a):
+                break
+            temp=a[i:j+1]
+        c0=j-i
+        if c0>c:
+            c=c0
+print(c)
