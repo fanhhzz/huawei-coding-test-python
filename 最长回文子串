@@ -1,0 +1,63 @@
+a=input()
+n=len(a)
+i=0
+c=0
+while i<(n-1):
+    b=[]
+    b.append(a[i])
+    j=i+1
+    while j<n:
+        if a[j]!=b[-1]:
+            b.append(a[j])
+            j+=1
+        else:
+            k=-1
+            d=[]
+            while a[j]==b[k]:
+                d.append(a[j])
+                j=j+1
+                k=k-1
+                if (j>=n) or (k<(-len(b))):
+                    break
+            c0=-1-k
+            b=b+d
+            if c0>c:
+                c=c0
+    i+=1
+print(2*c)                 
+  #############              
+while True:
+    try:
+        a=input()
+        n=len(a)
+        i=0
+        c=0
+        while i<(n-1):
+            b=[]
+            b.append(a[i])
+            j=i+1
+            while j<n:
+                if a[j]!=b[-1]:
+                    b.append(a[j])
+                    j+=1
+                else:
+                    k=-1
+                    d=[]
+                    while a[j]==b[k]:
+                        d.append(a[j])
+                        j=j+1
+                        k=k-1
+                        
+                        if (j>=n)or(k<(-len(b))):
+                            break
+                    c0=-1-k
+                    b=b+d
+                    if c0>c:
+                        c=c0
+            i+=1
+        print(2*c)
+    except:break
+
+
+
+    
