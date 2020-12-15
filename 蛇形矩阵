@@ -1,0 +1,26 @@
+while True:
+    try:
+        a=int(input())
+        k=[]
+        o=[]
+        for i in range(a):
+            b=[]
+            if i>=1:
+                #not temp[0]#temp=k[i-1];print(temp[0])
+                temp=o[i-1]
+                one=int(temp)+i
+                o.append(one)
+                b.append(str(one))
+                c=one
+            else:
+                one=1
+                o.append(one)
+                b.append(str(one))
+                c=one
+            for j in range(i+2,a+1):
+                c=c+j
+                b.append(str(c))
+            kk=" ".join(b)
+            k.append(kk)
+        print("\n".join(k))
+    except:break
