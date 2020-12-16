@@ -1,0 +1,84 @@
+if i<len(a)-1:
+                    t=a[i+1]
+                    if (t!="?") and (t!="*"):
+                        t=a[i]+t
+                        if (t in b):
+                            j=b.find(t)
+################
+a=input()
+b=input()
+i=0
+j=0
+k=0
+#print(not((b[1].isalpha()) or (b[1].isdigit())))
+while i<len(a):
+    #if (a[i]=='*') and (a[i]!=a[-1]):
+    if (a[i]=='*'):
+        b=b[j:]
+        j=0
+        k=1
+    elif (a[i]=='?'):
+        if not((b[j].isalpha()) or (b[j].isdigit())):
+            print('false')
+            break
+    elif(a[i] in b) and (k==1):
+        j=b.find(a[i])
+        for m in b[:j]:
+            if not((m.isalpha()) or (m.isdigit())):
+                print('false')
+                break
+        b=b[j:]
+        j=0
+        k=0
+    elif(a[i]!=b[j]):
+        print('false')
+        break
+    j=j+1
+    i=i+1
+if i==len(a):
+    print('true')
+        
+        
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+ while True:
+    try:
+        a=input()
+        b=input()
+        i=0
+        j=0
+        k=0
+#print(not((b[1].isalpha()) or (b[1].isdigit())))
+        while i<len(a):
+    #if (a[i]=='*') and (a[i]!=a[-1]):
+            if (a[i]=='*'):
+                b=b[j:]
+                j=0
+                k=1
+            elif (a[i]=='?'):
+                if not((b[j].isalpha()) or (b[j].isdigit())):
+                    print('false')
+                    break
+            elif(a[i] in b) and (k==1):
+                j=b.find(a[i])
+                for m in b[:j]:
+                    if not((m.isalpha()) or (m.isdigit())):
+                        print('false')
+                        break
+                if i<len(a)-1:
+                    t=a[i+1]
+                    if (t!="?") and (t!="*"):
+                        t=a[i]+t
+                        if (t in b):
+                            j=b.find(t)
+                b=b[j:]
+                j=0
+                k=0
+            elif(a[i]!=b[j]):
+                print('false')
+                break
+            j=j+1
+            i=i+1
+        if i==len(a):
+            print('true')
+    except:break
+                        
