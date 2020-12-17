@@ -1,0 +1,38 @@
+
+############not# 递归
+def ssum(b,c):
+    if b==[]:
+        return[0]
+    else:
+        bb=b.pop()
+        cc=c.pop()
+        t=[]
+        tt=ssum(b,c)
+        s=[]
+        for i in range(cc+1):
+            t.append(bb*i)
+        for j in tt:
+            for k in t:
+                s.append(j+k)
+        #return
+s=ssum(b,c)
+print(len(s))
+#################内存超限:您的程序使用了超过限制的内存
+a=int(input())
+b=list(map(int,input().split()))
+c=list(map(int,input().split()))
+i=0
+s=[0]
+while i<len(b):
+    bt=b[i]
+    m=c[i]
+    t=s
+    s=[]
+    for tt in t:
+        for j in range(m+1):
+            s.append(j*bt+tt)
+    i=i+1
+#s=list(map(str,(s)))
+s2=list(set(s))
+#print(s2)
+print(len(s2))
