@@ -1,0 +1,11 @@
+#8/11可以分解为8个1/11相加
+while True:
+    try:
+        a=input()
+#a1,a2=map(int,a.split('/', 1 ))
+        a1,a2=a.split('/', 1 )
+        b='1'+'/'+a2
+        for i in range(int(a1)-1):
+            b=b+'+'+'1'+'/'+a2
+        print(b)
+    except:break
