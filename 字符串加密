@@ -1,0 +1,31 @@
+while True:
+    try:
+        a=input()
+        b=input()
+#a1=set(a)
+#print(a1)
+        a1=[]
+        for i in a:
+            if i not in a1:
+                a1.append(i)
+        a2="".join(a1)
+        a3=a2.upper()
+        c=[]
+        for i in range(65,91):
+            c.append(chr(i))
+            if chr(i) not in a3:
+                a3=a3+chr(i)
+        c="".join(c)
+        d=c.lower()
+        a0=a3.lower()
+        ans=[]
+        for i in b:
+            if i in c:
+                aa=c.find(i)
+                ans.append(a3[aa])
+            elif i in d:
+                bb=d.find(i)
+                ans.append(a0[bb])
+        ans="".join(ans)
+        print(ans)
+    except:break
