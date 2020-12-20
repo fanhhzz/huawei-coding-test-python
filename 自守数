@@ -1,0 +1,19 @@
+#start with 0
+while True:
+    try:
+        a=int(input())
+        k=0
+        for i in range(a+1):
+    
+            j=str(i)
+            b=str(i*i)
+            c=0
+            while c<len(j):
+                if j[-(c+1)]!=b[-(c+1)]:
+                    break
+                c+=1
+        #print(c,len(j))
+            if c==len(j):
+                k=k+1
+        print(k)
+    except:break
