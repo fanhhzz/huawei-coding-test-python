@@ -1,0 +1,22 @@
+while True:
+    try:
+        a=input()
+        b=input()
+        temp=a[::]
+        if len(temp)>len(b):
+            b,a=a,b
+#print(a,b)
+        c=[]
+        for i in range(len(a)):
+            ii=i
+            c0=a[ii]
+            while c0 in b:
+                ii+=1
+                if ii>=len(a):
+                    break
+                c0=c0+a[ii]
+            if len(c0[:-1])>len(c):
+                c=c0[:-1]
+                
+        print(c)
+    except:break
