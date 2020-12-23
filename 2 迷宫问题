@@ -1,0 +1,46 @@
+dirs = [
+    lambda x,y:(x+1,y),#下
+    # lambda x,y:(x-1,y),#上
+    # lambda x,y:(x,y-1),#左
+    lambda x,y:(x,y+1)#右
+#模拟上下左右
+]
+
+def solve_maze(x1,x2,y1,y2):
+    stack = []                    #模拟栈
+    stack.append((x1,y1))         #放入起始值
+    maze[x1][y1] = '2'            #访问过标记为2
+    while len(stack) > 0:         #循环访问
+        cur_node = stack[-1]      #取栈中最后一个值
+        if cur_node == (x2,y2):   #如果到了终点，输出栈中所有元素，并return
+            for i in stack:
+                print('(' + str(i[0]) + ',' + str(i[1]) + ')')
+            return
+        for d in dirs:                                             #依次向下向右遍历
+            next_node = d(cur_node[0],cur_node[1])                 #取下一结点
+            if n > next_node[0] >= 0 and m > next_node[1] >= 0:    #数组越界判断   
+                if maze[next_node[0]][next_node[1]] == '0':        
+                    #结点内是0则访问置为2，结点入栈
+                    stack.append(next_node)
+                    maze[next_node[0]][next_node[1]] = '2'
+                    break
+        else:       #否则退回到上一个访问成功的结点
+            stack.pop()
+while True:
+    try:
+        s = list(map(int,input().split()))
+        #接收迷宫的维度n，m
+        n = s[0]
+        m = s[1]
+        maze = []
+        for i in range(n):
+            #接收迷宫的数据
+            maze .append(input().split())
+        #maze = [[0 0 0 0 1]
+               #  [1 1 1 0 0]
+               #  [0 1 0 1 0]]
+        #将数据处理成上述形式，用来深度遍历
+        solve_maze(0,n-1,0,m-1)
+        #调用函数
+    except:
+        break
