@@ -1,0 +1,20 @@
+求最大公约数有两种方法 更相减损法和辗转相处法 最小公倍数在求出最大公约数后 两个数相乘除以最大公约数就是最小公倍数
+###########运行超时
+a,b=map(int,input().split())
+c=max(a,b)
+while c<=a*b:
+    if (c%a==0) and (c%b==0):
+        print(c)
+        break
+    else:
+        c=c+1
+        
+a,b=map(int,input().split())
+c=a*b
+d=1
+d0=d
+while d0<=min(a,b):
+    if (a%d0==0) and (b%d0==0)and (d0>d):
+        d=d0
+    d0+=1
+print(int(c/d))
