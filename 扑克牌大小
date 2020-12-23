@@ -1,0 +1,60 @@
+def judge (a1,a2):
+    s=['3','4','5','6','7','8','9','10','J','Q','K','A','2','joker','JOKER']
+    if ('JOKER' in a1) and ('joker' in a1):
+        print("joker JOKER")
+    elif ('JOKER' in a2) and ('joker' in a2):
+        print("joker JOKER")
+    elif len(a1)==4 and  a1[0]==a1[1]==a1[2]==a1[3]:
+        if len(a2)==4 and a2[0]==a2[1]==a2[2]==a2[3]:
+            t1=s.index(a1[1])
+            t2=s.index(a2[1])
+            if t1>t2:
+                print(" ".join(a1))
+            else:
+                print(" ".join(a2))
+        else:
+            print(" ".join(a1))
+    elif len(a2)==4 and a2[0]==a2[1]==a2[2]==a2[3]:
+        print(" ".join(a2))
+    elif len(a1)==3 and  a1[0]==a1[1]==a1[2] and len(a2)==3 and a2[0]==a2[1]==a2[2]:
+        t1=s.index(a1[1])
+        t2=s.index(a2[1])
+        if t1>t2:
+            print(" ".join(a1))
+        else:
+            print(" ".join(a2))
+    elif len(a1)==2 and  a1[0]==a1[1]and len(a2)==2 and a2[0]==a2[1]:
+        t1=s.index(a1[1])
+        t2=s.index(a2[1])
+        if t1>t2:
+            print(" ".join(a1))
+        else:
+            print(" ".join(a2))
+    elif len(a1)==1 and len(a2)==1:
+        t1=s.index(a1[0])
+        t2=s.index(a2[0])
+        if t1>t2:
+            print(" ".join(a1))
+        else:
+            print(" ".join(a2))
+    elif len(a1)==5 and len(a2)==5:
+        t1=s.index(a1[0])
+        t2=s.index(a2[0])
+        for i in range(1,5):
+            tt1=s.index(a1[i]) 
+            if tt1!=t1+i:
+                print('ERROR')
+            tt2=s.index(a2[i]) 
+            if tt2!=t2+i:
+                print('ERROR')
+        if t1>t2:
+            print(" ".join(a1))
+        else:
+            print(" ".join(a2))
+    else:
+        
+        print('ERROR')
+a=list(input().split("-"))
+a1=a[0].split()
+a2=a[1].split()
+judge(a1,a2)
