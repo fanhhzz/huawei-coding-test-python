@@ -1,0 +1,26 @@
+
+a=int(input())
+b=[]
+c=[]
+for i in range(a):
+    a1,a2=map(int,input().split())
+    b.append(a1)
+    c.append(a2)
+d=[]
+e=[]
+for j in range(a):
+    if b[j] not in d:
+        #dd=[b[j],c[j]]
+        d.append(b[j])
+        e.append(c[j])
+    else:
+        t=d.index(b[j])
+        e[t]=e[t]+c[j]
+f={}
+for k in range(len(d)):
+    #f.append(str(d[k])+" "+str(e[k]))
+    key=d[k]
+    f[key]=e[k]
+ff=sorted(f.keys(),reverse=False)
+for kk in ff:
+    print(kk,f[kk])
