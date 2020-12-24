@@ -1,0 +1,27 @@
+s=[]
+for i in range(65,91):
+    s.append(chr(i))
+for i in range(97,123):
+    s.append(chr(i))
+def fun(a):
+    re=[]
+    al=[]
+    res=[]
+    for i in range(0,len(a)):
+        if a[i] not in s:
+            re.append(i)
+        else:
+            al.append(a[i])
+    al.sort(key=lambda c:c.lower())
+    for i in range(0,len(a)):
+        if i not in re:
+            res.append(al[0])
+            al.pop(0)
+        else:
+            res.append(a[i])
+    print("".join(res))
+while True:
+    try:
+        a=input()
+        fun(a)
+    except:break
