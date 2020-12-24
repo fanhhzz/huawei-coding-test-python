@@ -1,0 +1,20 @@
+n=[chr(i+48) for i in range(10)]
+#print(n)
+while True:
+    try:
+        a=input()
+        s=0
+        b=[]
+        for i in a:
+            if (i in n) and (s==0):
+                b.append("*"+i)
+                s=1
+            elif (i not in n) and (s==1):
+                b.append("*"+i)
+                s=0
+            else:
+                b.append(i)
+        if a[-1] in n:
+            b.append("*")
+        print("".join(b))
+    except:break
