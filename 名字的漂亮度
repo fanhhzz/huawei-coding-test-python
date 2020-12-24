@@ -1,0 +1,32 @@
+将输入数据去重，并记录出现的次数，次数最多的记为26，其次记为25……，最大漂亮度为次数和单个字符漂亮度乘积的和
+
+
+cc=[chr(97+i) for i in range(26)]
+#print(cc)
+def pretty(a):
+    c=[0 for i in range(26)]
+    k={}
+    a=a.lower()
+    for i in a:
+        j=cc.index(i)
+        c[j]=c[j]+1
+    for i in range(26):
+        key=cc[i]
+        k[key]=c[i]
+    f=sorted(k.values(),reverse=True) 
+    to=26
+    tot=0
+
+    for ff in f:
+        tot=tot+ff*to
+        to=to-1
+    print(tot)
+while True:
+    try:
+        a=int(input())
+        b=[]
+        for i in range(a):
+            b.append(input())
+        for i in range(a):
+            pretty(b[i])
+    except:break
