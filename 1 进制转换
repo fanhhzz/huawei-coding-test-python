@@ -1,0 +1,6 @@
+while True:
+    try:
+        a=input()
+        print(int(a,16))
+        
+    except:break
