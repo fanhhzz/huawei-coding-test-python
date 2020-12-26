@@ -1,0 +1,27 @@
+s=[chr(i+97) for i in range(26)]
+n='0 1 2 3 4 5 6 7 8 9'.split()
+s=n+s
+def count(a):
+    dic={}
+    c1=[0 for i in range(36)]
+    for i in a:
+        t1=s.index(i)
+        c1[t1]+=1
+    for i in range(36):
+        key=s[i]
+        dic[key]=c1[i]
+    #f=sorted(dic.values(),reverse=True)
+    f=sorted(dic.items(),key=lambda x:x[1],reverse=True)
+    ans=[]
+    anss=[]
+    for j in f:
+        if j[1]>0:
+            ans.append(j[0])
+            anss.append(j[1])
+    print("".join(ans))   
+    #print((anss))
+while True:
+    try:
+        a=input()
+        count(a)
+    except:break
