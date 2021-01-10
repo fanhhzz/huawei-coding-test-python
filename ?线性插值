@@ -1,0 +1,93 @@
+#第一个是编号 第二个测量值
+#40%
+def so(sd,sv):
+    re=[]
+    for i in range(len(sd)-1):
+        
+        if sd[i]<sd[i+1]:
+            step=int((sv[i+1]-sv[i])/(sd[i+1]-sd[i]))
+            for k in range(sd[i],sd[i+1]):
+            #rep.append(sv[k])
+                temp=sv[i]+step*(k-sd[i])
+                re.append(str(k)+' '+str(temp))
+        else:
+            re.append(str(sd[i])+' '+str(sv[i]))
+    re.append(str(sd[-1])+' '+str(sv[-1]))
+    return re
+        
+while True:
+    try:
+        m,n=map(int, input().split())
+        dic={}
+        result1=[]  
+        result2=[] 
+        for a in range(m):
+            key,y=map(int, input().split())
+            if (key not in result1) or ((key in result1) and (dic[key]!=y) ):
+                result1.append(key)
+                result2.append(y)
+                dic[key]=y
+        rep=so(result1,result2)
+        for i in range(len(rep)):
+            print(rep[i])
+    except:break
+
+######################
+#排序后插值
+def so(sd,sv):
+    re=[]
+    rep=[]
+    k=0
+    for i in range(sd[0],sd[-1]+1):
+        re.append(i)
+        if i in sd:
+            
+            #rep.append(sv[k])
+            rep.append(str(i)+' '+str(sv[k]))
+            k=k+1
+        else:
+            temp=sv[k-1]+((sv[k]-sv[k-1])/(sd[k]-sd[k-1]))*(i-sd[k-1])
+            rep.append(str(i)+' '+str(temp))
+    return rep
+        
+    
+m,n=map(int, input().split())
+dic={}
+result1=[]  
+result2=[] 
+for a in range(m):
+    key,y=map(int, input().split())
+    if key not in result1:
+        result1.append(key)
+        result2.append(y)
+    
+        dic[key]=y
+#result1=[]  result2=[] 
+#for a in range(m):
+  #  if dic
+sd=sorted(dic.keys(),reverse=False)
+sv=[]
+for i in sd:
+    sv.append(dic[i])
+rep=so(sd,sv)
+for i in range(sd[0],sd[-1]+1):
+    print(rep[i])
+#print(so(sd,sv))
+########################
+while True:
+    try:
+        m,n=map(int,input().split())
+        num1,val1=map(int,input().split())
+        print('%d %d'%(num1,val1))
+        for i in range(1,m):
+            num2,val2=map(int,input().split())
+            if num1==num2:
+                continue
+            else:
+                step=int((val2-val1)/(num2-num1))
+                for j in range(1,num2-num1):
+                    print('%d %d'%(num1+j,val1+step*j))
+                print('%d %d'%(num2,val2))
+                num1,val1=num2,val2
+    except:
+        break
