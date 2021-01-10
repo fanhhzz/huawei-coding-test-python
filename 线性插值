@@ -1,5 +1,13 @@
 #第一个是编号 第二个测量值
-#40%
+总结：
+相邻的相同，删掉后面一个
+相邻的升序，中间需要插值
+相邻的降序，不管
+4 n
+23 5
+46 25   (程序中用KEY和VALUE来保存他们)
+46 32  (舍弃该对数值)
+82 46 
 def so(sd,sv):
     re=[]
     for i in range(len(sd)-1):
@@ -10,6 +18,9 @@ def so(sd,sv):
             #rep.append(sv[k])
                 temp=sv[i]+step*(k-sd[i])
                 re.append(str(k)+' '+str(temp))
+        elif sd[i]==sd[i+1]:
+            sv[i+1]=sv[i]
+            continue
         else:
             re.append(str(sd[i])+' '+str(sv[i]))
     re.append(str(sd[-1])+' '+str(sv[-1]))
@@ -23,15 +34,13 @@ while True:
         result2=[] 
         for a in range(m):
             key,y=map(int, input().split())
-            if (key not in result1) or ((key in result1) and (dic[key]!=y) ):
-                result1.append(key)
-                result2.append(y)
-                dic[key]=y
+            result1.append(key)
+            result2.append(y)
+            dic[key]=y
         rep=so(result1,result2)
         for i in range(len(rep)):
             print(rep[i])
     except:break
-
 ######################
 #排序后插值
 def so(sd,sv):
