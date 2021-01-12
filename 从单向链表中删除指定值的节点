@@ -1,0 +1,82 @@
+while True:
+    try:
+        sl=list(map(int,input().split()))
+        a=sl[0]
+        l=[]
+        l.append(sl[1])
+        l1=[]
+        l2=[]
+        n=1
+        for i in range(a-1):
+            n=n+1
+            x=sl[n]
+            n=n+1
+            y=sl[n]
+            l1.append(x)
+            l2.append(y)
+        b=sl[n+1]
+        j=l[0]
+        l[0]=str(j)
+        for i in range(a-1):
+            if str(l2[i]) not in l:
+                l.append(str(l2[i]))
+                l.append(str(l1[i]))
+            else:
+                j=l.index(str(l2[i]))
+                l.insert(j+1, str(l1[i]))
+        t=l.index(str(b))
+#print(l[t])
+        del l[t]
+        re=" ".join(l)+" "
+        print(re)       
+    except:break
+################
+测试用例
+a=int(input())
+l=[]
+l.append(int(input()))
+l1=[]
+l2=[]
+for i in range(a-1):
+    x,y=map(int,input().split())
+    l1.append(x)
+    l2.append(y)
+b=int(input())
+j=l[0]
+l[0]=str(j)
+for i in range(a-1):
+    if j in l2:
+        k=l2.index(j)
+        l.append(str(l1[k]))
+        j=l1[k]
+#print(l)
+for i in range(a-1):
+    k=str(l2[i])
+    j=l.index(k)
+    if l[j+1]!=str(l1[i]):
+        #del l[j+1]
+        l.insert(j+1,str(l1[i]))
+        #l=l[:a]
+t=l.index(str(b))
+#print(l[t])
+del l[t]
+print(" ".join(l))
+题目上那个测试用例是错的，不要管那个
+这道题目，首先输入格式不是题目给出的那样按组输入数据，而是全部一次性输入中间带空格；另外输出格式采用join函数，最后要带一个空格，也就是输出的每个元素后面都要带空格，这个题目描述的准确，因此join一个列表最后加一个空格即可
+5 2 3 2 4 3 5 2 1 4 3
+2 5 4 1
+########
+while True:
+    try:
+        s=input().split()
+        n=int(s[0])
+        res=[s[1]]
+        rm=s[-1]
+        for i in range(n-1):
+            a=s[2+i*2]
+            b=s[3+i*2]
+            res.insert(res.index(b)+1,a)
+        res.remove(rm)
+        print(' '.join(res)+' ')
+    except:
+        break
