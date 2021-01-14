@@ -1,0 +1,43 @@
+import math
+def iss(a):
+    j=0
+    if a>2:
+        b=int(math.sqrt(a))+1
+        for i in range(2,b):
+            if a%i==0:
+                j=1
+                re.append(i)
+                return iss(a/i)
+        if j==0:
+            re.append(int(a))
+    else:
+        re.append(2)
+re=[]
+a=int(input())
+iss(a)
+res=[]
+for i in re:
+    res.append(str(i))
+print(" ".join(res)+ " ")
+运行超时:您的程序未能在规定时间内运行结束，请检查是否循环有错或算法复杂度过大。
+case通过率为91.67%
+def iss(a):
+    j=0
+    if a>2:
+        b=int(a/2)
+        for i in range(2,b):
+            if a%i==0:
+                j=1
+                re.append(i)
+                return iss(a/i)
+        if j==0:
+            re.append(int(a))
+    else:
+        re.append(2)
+re=[]
+a=int(input())
+iss(a)
+res=[]
+for i in re:
+    res.append(str(i))
+print(" ".join(res)+ " ")
