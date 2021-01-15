@@ -1,0 +1,62 @@
+def mp3(ind,a):
+    cur=1
+    scr=[]
+    for i in ind:
+        if a<=4:
+            if i=='U':
+                if cur==1:
+                    cur==a
+                else:
+                    cur=cur-1
+            else:
+                if cur==4 or (cur==a):
+                    cur==1
+                else:
+                    cur=cur+1
+        else:
+            if i=='U':
+                if cur==1:
+                    cur=a
+                    scr=[]
+                    for k in range(a-3,a+1):
+                        scr.append(k)
+                elif cur==scr[0]:
+                    cur=cur-1
+                    scr.insert(0,cur)
+                    del scr[-1]
+                else:
+                    cur=cur-1
+            elif i=='D':
+                if cur==a:
+                    cur=1
+                    scr=[1,2,3,4]
+                elif scr!=[]:
+                    if cur==scr[-1]:
+                        del scr[0]
+                        scr.append(cur+1)
+                        cur=cur+1
+                    else:
+                        cur=cur+1
+                else:
+                    scr=[1,2,3,4]
+                    cur=cur+1
+    if a<=4:
+        for i in range(1,a+1):
+            scr.append(i)
+    scr.append(cur)
+    return scr
+while True:
+    try:
+        
+        a=int(input())
+        ind=input()
+
+        sscr=mp3(ind,a)
+        cur=sscr[-1]
+        scr=sscr[:-1]
+        re=[]
+        for i in scr:
+            re.append(str(i))
+        print(" ".join(re))
+        print(cur)
+    except:break
