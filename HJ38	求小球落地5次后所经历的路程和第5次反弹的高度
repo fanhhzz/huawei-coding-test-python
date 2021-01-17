@@ -1,0 +1,11 @@
+while True:
+    try:
+        a=int(input())
+        s=a
+        j=a
+        for i in range(5-1):
+            s=s+j
+            j=j/2
+        print(round(s,6))
+        print(round(j/2,6))
+    except:break
