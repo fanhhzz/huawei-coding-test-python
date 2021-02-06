@@ -1,0 +1,119 @@
+x='1 2 3 4 5 6 7 8 9 0'.split()
+y=["零","壹","贰","叁","肆","伍","陆","柒","捌","玖"]
+z=['元','拾','佰','仟','万','亿']
+def words(a):
+    if a<10: 
+        #return to19[a-1]
+        if a!=0:
+            return y[a]
+    elif a<100:
+        if ((a%10))!=0 and a>20:
+            return y[a//10]+z[1]+words(a%10)
+        elif a<20 and ((a%10))!=0:
+            return z[1]+words(a%10)
+        elif a==10:
+            return z[1]
+        else:
+            return y[a//10]+z[1]
+    elif a<10000:
+        for i in range(3,5):
+            if a<10**i:
+                t1=10**(i-1)
+                if a%(t1)>=10**(i-2):
+                    return y[a//t1]+z[i-1]+words(a%t1)
+                elif a%(t1)!=0:
+                    return y[a//t1]+z[i-1]+y[0]+words(a%t1)
+                else:
+                    return y[a//t1]+z[i-1]
+                break 
+    elif a<10**8:
+        t2=a%10000
+        if t2>1000:
+            return words(a//(10**4))+z[4]+words(a%10000)
+        else:
+            return words(a//(10**4))+z[4]+y[0]+words(a%10000)
+    elif a<10**12:
+        t3=a%(10**8)
+        if t3>10**7:
+            return words(a//(10**8))+z[5]+words(a%(10**8))
+        else:
+            return words(a//(10**8))+z[5]+y[0]+words(a%(10**8))
+while True:
+    try:
+        onum=(input())
+#tnum=str(int(num))
+        num=float(onum)
+        tnum=int(num)
+        if tnum>0:
+            res=words(tnum)
+            res='人民币'+res+'元'
+            if int(num)==num:
+                res=res+"整"
+            else:
+                a=int(onum[-2])
+                b=int(onum[-1])
+                if b==0:
+                    res=res+y[a]+'角'
+                elif a!=0:
+                    res=res+y[a]+'角'+y[b]+'分'
+                else:
+                    res=res+y[b]+'分'
+        else:
+                a=int(onum[-2])
+                b=int(onum[-1])
+                if b==0:
+                    res=res+y[a]+'角'
+                elif a!=0:
+                    res='人民币'+y[a]+'角'+y[b]+'分'
+                else:
+                    res=y[b]+'分'
+        print(res)
+#print(" ".join(words(a)))
+    except:break
+    ############
+1024.56
+10012.02
+100110.00
+30105000.00
+人民币壹仟零贰拾肆元伍角陆分
+人民币壹万零拾贰元贰分
+人民币拾万零壹佰拾元整
+人民币叁仟零拾万伍仟元整
+############
+while True:
+    try:
+        rmb = input().split(".")
+        n = rmb[0]
+        m = rmb[1]
+
+        x = ["0","1","2","3","4","5","6","7","8","9"]
+        y = ["零","壹","贰","叁","肆","伍","陆","柒","捌","玖"]
+        z = ["元","拾","佰","仟","万","拾","佰","仟","亿","拾","佰","仟","万亿","拾","佰","仟"]
+        t = ["角","分"]
+
+        result_b = ""
+        for i in range(len(m)):
+            if m[i] == "0":
+                continue
+            b = y[int(m[i])] + t[i]
+            result_b += b
+
+        result_a = "人民币"
+        n = n[::-1]
+        for i in range(len(n))[::-1]:
+            if n[i] == "0":
+                 result_a += "零"
+            else:
+                a = y[int(n[i])] + z[i]
+                result_a += a
+
+        s = result_a
+        s = s.replace("零零","零")
+        s = s.replace("人民币零","人民币")
+        s = s.replace("壹拾","拾")
+        if result_b:
+            print(s + result_b)
+        else:
+            print(s + "整")
+    except:
+        break
