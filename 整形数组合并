@@ -1,0 +1,25 @@
+while True:
+    try:
+        a=int(input())
+#a1=list(map(int,input().split()))
+        a1=list(map(int,input().split()))
+        b=int(input())
+        b1=list(map(int,input().split()))
+        c=list(set(a1+b1))
+        c=sorted(c)
+        res="".join(map(str,c))
+        print(res)
+    except:
+        break
+######not
+a=int(input())
+#a1=list(map(int,input().split()))
+a1=list(map(int,input().split()))
+b=int(input())
+b1=list(map(int,input().split()))
+c=list(set(a1+b1))
+c=sorted(c)
+res="".join(map(str,c))
+print(res)
+
+##########
