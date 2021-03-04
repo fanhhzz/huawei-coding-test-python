@@ -1,0 +1,47 @@
+while True:
+    try:
+        str1=input()
+#dic={}
+        list1=[]
+        list2=[]
+        for i in str1:
+            if i not in list1:
+                list1.append(i)
+                list2.append(1)
+            else:
+                j=list1.index(i)
+                list2[j]+=1
+        mini=min(list2)
+        i2=list2.index(mini)
+        listi=[i2]
+        res=str1.replace(list1[i2],'')
+        while i2<len(list2) and mini in list2[i2+1:len(list2)]:
+            i2=list2.index(mini,i2+1,len(list2))
+            listi.append(i2)
+            res=res.replace(list1[i2],'')
+#print(list1[i2])
+        print(res)
+    except:break
+
+##################
+str1=input()
+#dic={}
+list1=[]
+list2=[]
+for i in str1:
+    if i not in list1:
+        list1.append(i)
+        list2.append(1)
+    else:
+        j=list1.index(i)
+        list2[j]+=1
+mini=min(list2)
+i2=list2.index(mini)
+listi=[i2]
+res=str1.replace(list1[i2],'')
+while i2<len(list2) and mini in list2[i2+1:len(list2)]:
+    i2=list2.index(mini,i2+1,len(list2))
+    listi.append(i2)
+    res=res.replace(list1[i2],'')
+#print(list1[i2])
+print(res)
