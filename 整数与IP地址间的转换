@@ -1,0 +1,20 @@
+def tentoip(str1):
+    num1=list(str1.split('.'))
+    str0=''
+    for i in num1:
+        str0=str0+str(bin(int(i))[2:].zfill(8))
+    return int(str0,2)
+def iptoten(str2):
+    bins=bin(int(str2))[2:].zfill(32)
+    list2=[]
+    for i in range(4):
+        tens=str(int(bins[i*8:i*8+8],2))
+        list2.append(tens)
+    return ".".join(list2)
+while True:
+    try:
+        str1=input()
+        str2=input()
+        print(tentoip(str1))
+        print(iptoten(str2))
+    except:break
