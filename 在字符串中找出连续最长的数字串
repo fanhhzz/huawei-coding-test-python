@@ -1,0 +1,22 @@
+while True:
+    try:
+        str1=input()
+        res_temp=[]
+        res=''
+        maxn=0
+        for i in range(len(str1)):
+            temp=0
+            templ=''
+            while i<len(str1) and str1[i].isdigit():
+                temp+=1
+                templ+=str1[i]
+                i=i+1
+            if temp>=maxn:
+                maxn=temp
+                res_temp.append(templ)
+        for j in res_temp:
+            if len(j)==maxn:
+                res+=j
+#print(res)
+        print(res+','+str(maxn))
+    except:break
