@@ -1,0 +1,16 @@
+while True:
+    try:
+        str1=input()
+        str2=input()
+        n=0
+        if 65<=ord(str2)<=90:
+            str3=chr(ord(str2)+32)
+        elif 97<=ord(str2)<=122:
+            str3=chr(ord(str2)-32)
+        else:
+            str3==str3
+        for i in str1:
+            if i==str2 or i==str3:
+                n+=1
+        print(n)
+    except:break
