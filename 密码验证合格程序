@@ -1,0 +1,61 @@
+def checkpsw(s):
+    #listk=[]
+    ind=[0,0,0,0]
+    indres=[0,0,0,0]
+    for i in s:
+        if i.isdigit():
+            ind[0]+=1
+        elif 65<=ord(i)<=90:
+            ind[1]+=1
+        elif 97<=ord(i)<=122:
+            ind[2]+=1
+        else:
+            ind[3]+=1
+    if ind[0]>0:indres[0]=1
+    if ind[1]>0:indres[1]=1
+    if ind[2]>0:indres[3]=1
+    if ind[3]>0:indres[2]=1
+    if len(s)<=8:
+        print('NG')
+    elif sum(indres)<3:print('NG')
+    elif segment(s):print('NG')
+    else:print('OK')
+def segment(s):
+    n=len(s)
+    for i in range(n-5):
+        for j in range(i+3,n-3):
+            temp=s[i:j]
+            nt=len(temp)
+            com1=j
+            com2=com1+nt
+            while com2<n:
+                if temp==s[com1:com2]:
+                    return 1
+                    break
+                else:
+                    com1+=1
+                    com2=com1+nt
+    return 0
+while True:
+    try:
+        str1=input()
+        checkpsw(str1)
+    except:break
+    ##################
+import re
+try:
+    while 1:
+        
+        s = input()
+        
+        a = re.findall(r'(.{3,}).*\1', s)
+        b1 = re.findall(r'\d', s)
+        b2 = re.findall(r'[A-Z]', s)
+        b3 = re.findall(r'[a-z]', s)
+        b4 = re.findall(r'[^0-9A-Za-z]', s)
+        if ([b1, b2, b3, b4].count([]) <= 1 and a == [] and len(s) > 8):
+            print('OK') 
+        else:
+            print('NG')
+except:
+    pass
