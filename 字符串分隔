@@ -1,0 +1,12 @@
+while True:
+    try:
+        a=input()
+        n=len(a)
+        i=0
+        while n>=8:
+            print(a[i:(i+1)*8])
+            a=a[(i+1)*8:]
+            n=len(a)
+        if n!=0:
+            print(a+"0" *(8-n))
+    except:break
