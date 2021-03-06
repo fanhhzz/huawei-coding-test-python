@@ -1,0 +1,17 @@
+sumn=0
+sump=0
+n=0
+while True:
+    try:
+        i=int(input())
+        n=n+1
+        if i<0:
+            sumn+=1
+        else:
+            sump+=i
+    except:break
+print(sumn)
+if n!=sumn:
+    print(round(sump/(n-sumn),1))
+else:
+    print('0.0')
