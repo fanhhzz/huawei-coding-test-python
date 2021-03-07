@@ -1,0 +1,25 @@
+while True:
+    try:
+        stro=list(input().split())
+        str0=stro[0]+stro[1]
+        str1=[]
+        str2=[]
+        n=len(str0)
+        for i in range(len(str0)):
+            if i%2==0:
+                str1.append(str0[i])
+            else:
+                str2.append(str0[i])
+        str1.sort()
+        str2.sort()
+        i=0
+        strs=str1+str2
+        for i in range(len(strs)):
+            if 48<=ord(strs[i])<=57 or 65<=ord(strs[i])<=70 or 97<=ord(strs[i])<=102:
+                temp=bin(int(strs[i],16))[2:].zfill(4)
+                strs[i]=hex(int(temp[::-1],2))[2:].capitalize()
+        res=strs[:len(str1)]
+        for j in range(len(str2)):
+            res.insert(j*2+1, strs[len(str1)+j])
+        print("".join(res[:n]))
+    except:break
