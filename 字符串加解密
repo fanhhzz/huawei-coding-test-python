@@ -3,7 +3,7 @@ def psw(s):
     for i in s:
         if 65<=ord(i)<=89:
             res+=chr(ord(i)+33)
-        elif ord(i)==90:
+        elif i=='Z':
             res+='a'
         elif i=='z':
             res+='A'
@@ -21,14 +21,14 @@ def bpsw(s):
             res+=chr(ord(i)+31)
         elif ord(i)==65:
             res+='z'
-        elif i=='z':
-            res+='A'
+        elif i=='a':
+            res+='Z'
         elif 98<=ord(i)<=122:
             res+=chr(ord(i)-33)
-        elif i in '012345678':
+        elif i in '123456789':
             res+=chr(ord(i)-1)
-        elif i=='9':
-            res+='0'
+        elif i=='0':
+            res+='9'
     return res
 while True:
     try:
@@ -37,3 +37,4 @@ while True:
         print(psw(a))
         print(bpsw(b))
     except:break
+
