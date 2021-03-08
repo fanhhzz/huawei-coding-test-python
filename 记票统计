@@ -1,0 +1,19 @@
+while True:
+    try:
+        n=int(input())
+        candi=((input().split()))
+        m=int(input())
+        vote=((input().split()))
+        listn=[0 for i in range(n)]
+        inv=0
+#print(vote)
+        for i in vote:
+                if i not in candi:
+                    inv+=1
+                else:
+                    temp=candi.index(i)
+                    listn[temp]+=1
+        for i in range(n):
+            print(candi[i]+' '+':'+' '+str(listn[i]))
+        print('Invalid'+' '+':'+' '+str(inv))
+    except:break
