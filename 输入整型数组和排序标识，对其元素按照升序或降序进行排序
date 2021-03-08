@@ -1,0 +1,14 @@
+while True:
+    try:
+        n=int(input())
+        listn=list(map(int, input().split()))
+        ind=int(input())
+        if ind==0:
+            listn.sort()
+            slistn=map(str,listn)
+            print(' '.join(slistn))
+        else:
+            listn.sort(reverse=True)
+            slistn=map(str,listn)
+            print(' '.join(slistn))
+    except:break
