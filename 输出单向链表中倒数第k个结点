@@ -1,0 +1,13 @@
+while True:
+    try:
+        n=int(input())
+        link=input().split()
+#print(link)
+        ind=int(input())
+        if ind in range(1,n+1):
+            print(link[-ind])
+        elif ind==0:
+            print('0')
+        else:
+            print('Null')
+    except:break
